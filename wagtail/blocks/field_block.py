@@ -813,6 +813,9 @@ class ChooserBlock(FieldBlock):
 
     def value_from_form(self, value):
         # ModelChoiceField sometimes returns an ID, and sometimes an instance; we want the instance
+        if value == "":
+            value = None
+
         if value is None or isinstance(value, self.model_class):
             return value
         else:
