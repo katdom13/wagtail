@@ -125,7 +125,7 @@ def check_panels_in_model(cls, context="model"):
                         )
                     )
 
-    if issubclass(cls, Page) or hasattr(cls, "edit_handler"):
+    if issubclass(cls, Page) or hasattr(cls, "edit_handler") or hasattr(cls, "get_edit_handler"):
         # Pages do not need to be checked for standalone tabbed_panel usage
         # if edit_handler is used on any model, assume config is correct
         return errors
